@@ -1,6 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { OpenActions } from "../../store/OpenSlice";
 
 export default function ShopHeader() {
+  const dispatch = useDispatch();
+
+  function handleToggleMember() {
+    dispatch(OpenActions.toggleMember());
+  }
+
   return (
     <header className="menu-bar">
       <ul className="menu-bar-list">
@@ -27,7 +35,7 @@ export default function ShopHeader() {
         </li>
       </ul>
       <div className="menu-bar-icon">
-        <NavLink to="/">
+        <NavLink onClick={handleToggleMember}>
           <ion-icon name="person-circle-outline"></ion-icon>
         </NavLink>
         <NavLink to="/">

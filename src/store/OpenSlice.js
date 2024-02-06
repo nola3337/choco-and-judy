@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { menu: false };
+const initialState = { menu: false, member: false };
 
 const OpenSlice = createSlice({
   name: "open",
@@ -8,6 +8,9 @@ const OpenSlice = createSlice({
   reducers: {
     toggleMenu(state) {
       return { ...state, menu: !state.menu };
+    },
+    toggleMember(state) {
+      return { ...state, member: !state.member };
     },
   },
 });

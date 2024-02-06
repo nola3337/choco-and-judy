@@ -1,4 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect } from "react";
+import { sendData } from "./store/fetchAction";
+import { useSelector, useDispatch } from "react-redux";
 
 import RootLayout from "./pages/RootLayout";
 import Home from "./pages/Home";
@@ -10,8 +13,23 @@ import CakeProducts from "./component/shop/CakeProducts";
 import CookieProducts from "./component/shop/CookieProducts";
 import Item from "./component/shop/Item";
 import Cart from "./component/shop/Cart";
+import CMS from "./component/shop/CMS";
+
+let isInitial = true;
 
 function App() {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.product.products);
+
+  // useEffect(() => {
+  //   if (isInitial) {
+  //     isInitial = false;
+  //     return;
+  //   }
+
+  //   dispatch(sendData(data));
+  // }, [data, dispatch]);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -46,12 +64,16 @@ function App() {
               element: <CookieProducts />,
             },
             {
-              path: "/shop/item",
+              path: "/shop/:id",
               element: <Item />,
             },
             {
               path: "/shop/cart",
               element: <Cart />,
+            },
+            {
+              path: "/shop/cms",
+              element: <CMS />,
             },
           ],
         },

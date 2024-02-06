@@ -12011,6 +12011,11 @@ a {
   font-size: 2rem;
   letter-spacing: 0.1rem;
   position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
 }
 .header-logo a {
   display: flex;
@@ -12038,9 +12043,19 @@ ion-icon:hover {
   color: rgba(200, 198, 198, 0.6);
 }
 
+@keyframes nav-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .nav {
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -12048,7 +12063,7 @@ ion-icon:hover {
   display: grid;
   place-items: center;
   background-image: linear-gradient(to bottom, #511414, rgba(81, 20, 20, 0.391)), url("./img/menu2.jpg");
-  transition: all 0.8s;
+  animation: nav-animation 0.8s;
 }
 .nav-btn {
   align-self: start;
@@ -12334,6 +12349,7 @@ ion-icon:hover {
 
 .menu-bar {
   height: 6rem;
+  margin-top: 6rem;
   background-color: bisque;
   display: flex;
   align-items: center;
@@ -12471,6 +12487,9 @@ ion-icon:hover {
   font-size: 1.8rem;
   font-weight: 600;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.086);
+}
+.product-list-card img {
+  width: 18rem;
 }
 .product-list-card-info {
   display: flex;
@@ -12705,4 +12724,57 @@ ion-icon:hover {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.cms {
+  padding: 5rem 10rem;
+}
+.cms-form {
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: bisque;
+  border-radius: 11px;
+  padding: 6rem;
+}
+.cms-form h2, .cms-form .h2 {
+  color: #511414;
+  font-weight: 600;
+}
+.cms-form img {
+  width: 20rem;
+  height: 20rem;
+  margin-left: 15rem;
+}
+.cms-form-input {
+  margin-left: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+.cms-form-input label {
+  font-size: 1.8rem;
+}
+.cms-form-input input {
+  height: 2.5rem;
+  font-size: 1.8rem;
+}
+.cms-form-input select {
+  height: 2.5rem;
+  font-size: 1.8rem;
+}
+.cms-form-input textarea {
+  font-size: 1.8rem;
+}
+.cms-form button {
+  background-color: #511414;
+  color: #fff;
+  font-size: 1.8rem;
+  margin-left: auto;
+  padding: 0.5rem 2rem;
+  margin-top: 2rem;
+}
+.cms-form button:hover {
+  background-color: #651919;
+  color: #fff;
 }/*# sourceMappingURL=main.css.map */

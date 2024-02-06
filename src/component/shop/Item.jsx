@@ -1,8 +1,27 @@
 import p1 from "../../styles/img/products/cococake-p.webp";
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export default function Item() {
+  const productList = useSelector((state) => state.product.products);
+  const params = useParams();
+
+  const product = productList.find((item) => {
+    return item.id.toString() === params.id;
+  });
+
+  let classes;
+
+  if (product.type && product.type === "巧克力") {
+    classes = "chocolate";
+  } else if (product.type === "美味蛋糕") {
+    classes = "cake";
+  } else if (product.type === "經典餅乾") {
+    classes = "cookie";
+  }
+
   return (
     <div>
       <div className="page-map">
@@ -10,29 +29,26 @@ export default function Item() {
           <ion-icon name="home-sharp"></ion-icon>
         </Link>
         <ion-icon name="chevron-forward-sharp"></ion-icon>
-        <Link to="/shop/cake">
-          <span>美味蛋糕</span>
+        <Link to={`/shop/${classes}`}>
+          <span>{product && product.type}</span>
         </Link>
         <ion-icon name="chevron-forward-sharp"></ion-icon>
-        <span>75%香濃可可蛋糕</span>
+        <span>{product && product.name}</span>
       </div>
       <div className="item">
         <div className="item-img">
-          <img src={p1} alt="75%香濃可可蛋糕" />
+          <img src={p1} alt={product && product.name} />
         </div>
         <div className="item-text">
-          <h2>75%香濃可可蛋糕</h2>
+          <h2>{product && product.name}</h2>
           <hr />
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Voluptatibus, accusantium nob! Culpa deleniti iure nihil soluta,
-            itaque cupiditate perspiciatis maxime dolor impedit nam ma minima?
-            Facilis voluptatum explicabo alias nemo?
-          </p>
+          <p>{product && product.description}</p>
         </div>
         <div className="item-buy">
           <span className="item-buy-text">優惠價</span>
-          <span className="item-buy-price">NT$1230</span>
+          <span className="item-buy-price">
+            NT&#36;{product && product.price}
+          </span>
           <button className="btn product-list-card-info-btn item-buy-btn">
             <span>加入購物車</span>
           </button>

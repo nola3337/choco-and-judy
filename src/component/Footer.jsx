@@ -1,6 +1,8 @@
 import logoText from "../styles/img/logotext3.png";
 import logo from "../styles/img/ribbon.webp";
 
+import { NavHashLink } from "react-router-hash-link";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -20,10 +22,11 @@ export default function Footer() {
         </a>
       </div>
       <div className="footer-link">
-        <a href="#">關於我們</a>
-        <a href="#">聯絡我們</a>
-        <a href="#">門市據點</a>
-        <a href="#">線上商店</a>
+        <NavHashLink to="/#about">關於我們</NavHashLink>
+        <NavHashLink to="/">聯絡我們</NavHashLink>
+        <NavHashLink to="/#stores">門市據點</NavHashLink>
+        <NavHashLink to="/shop">線上商店</NavHashLink>
+        <NavHashLink to="/shop/cms">進入後台</NavHashLink>
       </div>
       <div className="footer-copyright">
         <span>COPYRIGHT &#169; CHOCO &#38; JUDY ALL RIGHTS RESERVED</span>

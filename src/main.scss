@@ -39,6 +39,11 @@ a {
   font-size: 2rem;
   letter-spacing: 0.1rem;
   position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
 
   &-logo {
     a {
@@ -72,9 +77,20 @@ ion-icon {
   }
 }
 
+@keyframes nav-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .nav {
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -88,7 +104,7 @@ ion-icon {
       rgba(81, 20, 20, 0.391)
     ),
     url("./img/menu2.jpg");
-  transition: all 0.8s;
+  animation: nav-animation 0.8s;
 
   &-btn {
     align-self: start;
@@ -424,6 +440,7 @@ ion-icon {
 
 .menu-bar {
   height: 6rem;
+  margin-top: 6rem;
   background-color: $color-bg;
   display: flex;
   align-items: center;
@@ -578,6 +595,10 @@ ion-icon {
     font-size: 1.8rem;
     font-weight: 600;
     box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.086);
+
+    img {
+      width: 18rem;
+    }
 
     &-info {
       display: flex;
@@ -856,6 +877,69 @@ ion-icon {
       display: flex;
       gap: 1rem;
       align-items: center;
+    }
+  }
+}
+
+.cms {
+  padding: 5rem 10rem;
+
+  &-form {
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: $color-bg;
+    border-radius: 11px;
+    padding: 6rem;
+
+    h2 {
+      color: $color-choco;
+      font-weight: 600;
+    }
+
+    img {
+      width: 20rem;
+      height: 20rem;
+      margin-left: 15rem;
+    }
+
+    &-input {
+      margin-left: 1rem;
+      display: flex;
+      gap: 2rem;
+
+      label {
+        font-size: 1.8rem;
+      }
+
+      input {
+        height: 2.5rem;
+        font-size: 1.8rem;
+      }
+
+      select {
+        height: 2.5rem;
+        font-size: 1.8rem;
+      }
+
+      textarea {
+        font-size: 1.8rem;
+      }
+    }
+
+    button {
+      background-color: $color-choco;
+      color: #fff;
+      font-size: 1.8rem;
+      margin-left: auto;
+      padding: 0.5rem 2rem;
+      margin-top: 2rem;
+
+      &:hover {
+        background-color: lighten($color-choco, 5%);
+        color: #fff;
+      }
     }
   }
 }
