@@ -14,6 +14,7 @@ import CookieProducts from "./component/shop/CookieProducts";
 import Item from "./component/shop/Item";
 import Cart from "./component/shop/Cart";
 import CMS from "./component/shop/CMS";
+import { action as CMSAction } from "./component/shop/CMS";
 
 let isInitial = true;
 
@@ -74,6 +75,7 @@ function App() {
             {
               path: "/shop/cms",
               element: <CMS />,
+              action: CMSAction,
             },
           ],
         },

@@ -1,25 +1,27 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { ProductActions } from "../../store/ProductSlice";
+import { Form, useNavigation, redirect } from "react-router-dom";
 
 export default function CMS() {
   const img = useRef();
   const [loadImg, setLoadImg] = useState();
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+
+  const isSubmitting = navigation.state === "submitting";
 
   function handleSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     const fd = new FormData(event.target);
 
     const data = Object.fromEntries(fd.entries());
 
-    console.log(data);
-
     dispatch(ProductActions.addNewProduct(data));
 
-    event.target.reset();
+    // event.target.reset();
   }
 
   function handleLoadImg() {
@@ -38,7 +40,7 @@ export default function CMS() {
 
   return (
     <div className="cms">
-      <form onSubmit={handleSubmit} className="cms-form">
+      <Form method="post" onSubmit={handleSubmit} className="cms-form">
         <h2>新增商品</h2>
         <div className="cms-form-input">
           <label>商品名稱</label>
@@ -81,8 +83,44 @@ export default function CMS() {
           <label>商品描述</label>
           <textarea name="description" cols="40" rows="10" required></textarea>
         </div>
-        <button className="btn">儲存</button>
-      </form>
+        <button type="submit" disabled={isSubmitting} className="btn">
+          {isSubmitting ? "isSubmitting" : "儲存"}
+        </button>
+      </Form>
     </div>
   );
+}
+
+export async function action({ request, params }) {
+  const data = Object.fromEntries(await request.formData());
+
+  const productData = {
+    id: Math.random(),
+    name: data.name,
+    type: data.type,
+    price: data.price,
+    isHot: data.isHot,
+    description: data.description,
+  };
+
+  const response = await fetch(
+    "https://choco04-e8edd-default-rtdb.firebaseio.com/judy.json",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    }
+  );
+
+  if (response.status === 422) {
+    return response;
+  }
+
+  if (!response.ok) {
+    console.log("failed!");
+  }
+
+  return redirect("/shop");
 }
