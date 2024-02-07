@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { ProductActions } from "../../store/ProductSlice";
-import { Form, useNavigation, redirect } from "react-router-dom";
+import { Form, useNavigation, useActionData } from "react-router-dom";
 
 export default function CMS() {
   const img = useRef();
@@ -9,6 +9,7 @@ export default function CMS() {
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const actionData = useActionData();
 
   const isSubmitting = navigation.state === "submitting";
 
@@ -42,6 +43,13 @@ export default function CMS() {
     <div className="cms">
       <Form method="post" onSubmit={handleSubmit} className="cms-form">
         <h2>新增商品</h2>
+        {actionData && actionData.errors && (
+          <ul>
+            {Object.values(actionData.errors).map((err) => {
+              return <li key={err}>{err}</li>;
+            })}
+          </ul>
+        )}
         <div className="cms-form-input">
           <label>商品名稱</label>
           <input name="name" type="text" required />
@@ -121,6 +129,4 @@ export async function action({ request, params }) {
   if (!response.ok) {
     console.log("failed!");
   }
-
-  return redirect("/shop");
 }
