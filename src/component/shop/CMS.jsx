@@ -1,7 +1,12 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { ProductActions } from "../../store/ProductSlice";
-import { Form, useNavigation, useActionData } from "react-router-dom";
+import {
+  Form,
+  useNavigation,
+  useActionData,
+  useNavigate,
+} from "react-router-dom";
 
 export default function CMS() {
   const img = useRef();
@@ -10,6 +15,7 @@ export default function CMS() {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const actionData = useActionData();
+  const navigate = useNavigate();
 
   const isSubmitting = navigation.state === "submitting";
 
@@ -23,6 +29,8 @@ export default function CMS() {
     dispatch(ProductActions.addNewProduct(data));
 
     // event.target.reset();
+
+    navigate("/shop");
   }
 
   function handleLoadImg() {
@@ -92,7 +100,7 @@ export default function CMS() {
           <textarea name="description" cols="40" rows="10" required></textarea>
         </div>
         <button type="submit" disabled={isSubmitting} className="btn">
-          {isSubmitting ? "isSubmitting" : "儲存"}
+          {isSubmitting ? "Submitting..." : "儲存"}
         </button>
       </Form>
     </div>
