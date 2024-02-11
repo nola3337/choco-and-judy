@@ -6,6 +6,7 @@ import {
   useNavigation,
   useActionData,
   useNavigate,
+  redirect,
 } from "react-router-dom";
 
 export default function CMS() {
@@ -110,17 +111,21 @@ export default function CMS() {
 export async function action({ request, params }) {
   const data = Object.fromEntries(await request.formData());
 
+  console.log(data.img);
+
   const productData = {
     id: Math.random(),
+    img: data.img,
     name: data.name,
     type: data.type,
     price: data.price,
     isHot: data.isHot,
     description: data.description,
+    isInCart: false,
   };
 
   const response = await fetch(
-    "https://choco04-e8edd-default-rtdb.firebaseio.com/judy.json",
+    `https://choco04-e8edd-default-rtdb.firebaseio.com/judy.json`,
     {
       method: "POST",
       headers: {
@@ -137,4 +142,6 @@ export async function action({ request, params }) {
   if (!response.ok) {
     console.log("failed!");
   }
+
+  return redirect("/shop");
 }

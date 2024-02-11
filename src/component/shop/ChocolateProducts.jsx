@@ -1,10 +1,22 @@
 import { Link } from "react-router-dom";
-
-import p3 from "../../styles/img/products/heart-p.webp";
-import p4 from "../../styles/img/products/starchoco-p.webp";
-import p8 from "../../styles/img/products/stars-p.webp";
+import { useQuery } from "@tanstack/react-query";
+import fetchData from "../../http";
 
 export default function ChocolateProducts() {
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchData,
+  });
+
+  let dataArray = [];
+
+  if (data) {
+    dataArray = Object.entries(data).map(([key, value]) => ({
+      ...value,
+      key: key,
+    }));
+  }
+
   return (
     <div>
       <div className="page-map">
@@ -20,36 +32,28 @@ export default function ChocolateProducts() {
       <div className="product-page">
         <h2>巧克力</h2>
         <ul className="product-list">
-          <li className="product-list-card">
-            <img src={p3} alt="愛心巧克力" />
-            <div className="product-list-card-info">
-              <Link to="/">愛心巧克力</Link>
-              <span>NT$500</span>
-              <button className="btn product-list-card-info-btn">
-                <span>加入購物車</span>
-              </button>
-            </div>
-          </li>
-          <li className="product-list-card">
-            <img src={p4} alt="榛果巧克力" />
-            <div className="product-list-card-info">
-              <Link to="/">榛果巧克力</Link>
-              <span>NT$490</span>
-              <button className="btn product-list-card-info-btn">
-                <span>加入購物車</span>
-              </button>
-            </div>
-          </li>
-          <li className="product-list-card">
-            <img src={p8} alt="75%香濃可可蛋糕" />
-            <div className="product-list-card-info">
-              <Link to="/">75%香濃可可蛋糕</Link>
-              <span>NT$770</span>
-              <button className="btn product-list-card-info-btn">
-                <span>加入購物車</span>
-              </button>
-            </div>
-          </li>
+          {data &&
+            dataArray &&
+            dataArray
+              .filter((item) => item.type === "巧克力")
+              .map((item) => {
+                const imgPath = `${process.env.PUBLIC_URL}/products/${item.img}`;
+
+                return (
+                  <li key={item.id} className="product-list-card">
+                    <Link to={`/shop/${item.id}`}>
+                      <img src={imgPath} alt={item.name} />
+                    </Link>
+                    <div className="product-list-card-info">
+                      <Link to={`/shop/${item.id}`}>{item.name}</Link>
+                      <span>NT&#36;{item.price}</span>
+                      <button className="btn product-list-card-info-btn">
+                        <span>加入購物車</span>
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
         </ul>
       </div>
     </div>

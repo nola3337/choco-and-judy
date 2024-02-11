@@ -1,16 +1,27 @@
-import p1 from "../../styles/img/products/cococake-p.webp";
-
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import fetchData from "../../http";
 
 export default function Item() {
-  const productList = useSelector((state) => state.product.products);
   const params = useParams();
 
-  const product = productList.find((item) => {
-    return item.id.toString() === params.id;
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchData,
   });
+
+  let dataArray = [];
+
+  let product;
+
+  if (data) {
+    dataArray = Object.values(data);
+
+    product = dataArray.find((item) => {
+      return item.id.toString() === params.id;
+    });
+  }
 
   let classes;
 
@@ -21,6 +32,8 @@ export default function Item() {
   } else if (product.type === "經典餅乾") {
     classes = "cookie";
   }
+
+  const imgPath = `${process.env.PUBLIC_URL}/products/${product.img}`;
 
   return (
     <div>
@@ -37,7 +50,7 @@ export default function Item() {
       </div>
       <div className="item">
         <div className="item-img">
-          <img src={p1} alt={product && product.name} />
+          <img src={imgPath} alt={product && product.name} />
         </div>
         <div className="item-text">
           <h2>{product && product.name}</h2>

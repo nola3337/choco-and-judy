@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
 import { sendData } from "./store/fetchAction";
 import { useSelector, useDispatch } from "react-redux";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import RootLayout from "./pages/RootLayout";
 import Home from "./pages/Home";
@@ -17,6 +18,8 @@ import CMS from "./component/shop/CMS";
 import { action as CMSAction } from "./component/shop/CMS";
 
 let isInitial = true;
+
+const queryClient = new QueryClient();
 
 function App() {
   const dispatch = useDispatch();
@@ -82,7 +85,11 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

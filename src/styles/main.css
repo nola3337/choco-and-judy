@@ -12494,7 +12494,8 @@ ion-icon:hover {
 .product-list-card-info {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: space-between;
+  height: 15rem;
   padding: 2rem 1rem 3rem 1rem;
 }
 .product-list-card-info a {
@@ -12529,7 +12530,7 @@ ion-icon:hover {
 }
 .item-text p {
   font-size: 2rem;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 .item-buy {
   padding: 3rem;

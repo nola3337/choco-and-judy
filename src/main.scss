@@ -603,7 +603,9 @@ ion-icon {
     &-info {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      // gap: 2rem;
+      justify-content: space-between;
+      height: 15rem;
       padding: 2rem 1rem 3rem 1rem;
 
       a {
@@ -645,7 +647,7 @@ ion-icon {
 
     p {
       font-size: 2rem;
-      line-height: 1.2;
+      line-height: 1.5;
     }
   }
 
