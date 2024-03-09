@@ -1,0 +1,45 @@
+.product-list {
+  padding: 2rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 3rem;
+  place-items: center;
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.086);
+
+    img {
+      width: 18rem;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      // gap: 2rem;
+      justify-content: space-between;
+      height: 15rem;
+      padding: 2rem 1rem 3rem 1rem;
+
+      &-cms-btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      span {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

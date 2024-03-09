@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchData from "../../http";
+import Loading from "../Loading";
+import Error from "../Error.jsx";
+import ListItem from "./ListItem.jsx";
 
 export default function ChocolateProducts() {
   const { data, isPending, isError, error } = useQuery({
@@ -17,6 +20,28 @@ export default function ChocolateProducts() {
     }));
   }
 
+  let content;
+
+  if (isPending) {
+    content = <Loading />;
+  }
+
+  if (isError) {
+    content = <Error error={error} />;
+
+    console.error("Error:", error);
+
+    if (error.response) {
+      console.error("Response:", error.response);
+    }
+  }
+
+  if (data) {
+    content = dataArray
+      .filter((item) => item.type === "巧克力")
+      .map((item) => <ListItem key={item.key} data={item} />);
+  }
+
   return (
     <div>
       <div className="page-map">
@@ -31,30 +56,7 @@ export default function ChocolateProducts() {
 
       <div className="product-page">
         <h2>巧克力</h2>
-        <ul className="product-list">
-          {data &&
-            dataArray &&
-            dataArray
-              .filter((item) => item.type === "巧克力")
-              .map((item) => {
-                const imgPath = `${process.env.PUBLIC_URL}/products/${item.img}`;
-
-                return (
-                  <li key={item.id} className="product-list-card">
-                    <Link to={`/shop/${item.id}`}>
-                      <img src={imgPath} alt={item.name} />
-                    </Link>
-                    <div className="product-list-card-info">
-                      <Link to={`/shop/${item.id}`}>{item.name}</Link>
-                      <span>NT&#36;{item.price}</span>
-                      <button className="btn product-list-card-info-btn">
-                        <span>加入購物車</span>
-                      </button>
-                    </div>
-                  </li>
-                );
-              })}
-        </ul>
+        <ul className="product-list">{content}</ul>
       </div>
     </div>
   );

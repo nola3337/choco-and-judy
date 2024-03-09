@@ -2,9 +2,19 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchData from "../../http";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addToCart } from "../../http";
 
 export default function Item() {
   const params = useParams();
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: addToCart,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+    },
+  });
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
@@ -16,7 +26,10 @@ export default function Item() {
   let product;
 
   if (data) {
-    dataArray = Object.values(data);
+    dataArray = Object.entries(data).map(([key, value]) => ({
+      ...value,
+      key: key,
+    }));
 
     product = dataArray.find((item) => {
       return item.id.toString() === params.id;
@@ -62,7 +75,10 @@ export default function Item() {
           <span className="item-buy-price">
             NT&#36;{product && product.price}
           </span>
-          <button className="btn product-list-card-info-btn item-buy-btn">
+          <button
+            onClick={() => mutate(product.key)}
+            className="btn btn-addtocard btn-product-info"
+          >
             <span>加入購物車</span>
           </button>
         </div>

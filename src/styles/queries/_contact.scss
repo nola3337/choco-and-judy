@@ -1,0 +1,89 @@
+// 862px
+
+@media (max-width: 54em) {
+  .contact {
+    margin-top: 4rem;
+    padding: 7rem;
+  }
+}
+
+// 831px
+
+@media (max-width: 52em) {
+  .contact {
+    padding: 5rem;
+  }
+}
+
+// 800px
+
+@media (max-width: 50em) {
+  .contact-form {
+    width: 80vw;
+    padding: 8rem;
+  }
+}
+
+// 703px
+
+@media (max-width: 44em) {
+  .contact h2 {
+    font-size: 2.5rem;
+  }
+}
+
+// 605px
+
+@media (max-width: 38em) {
+  .contact h2 {
+    margin-left: 2rem;
+  }
+}
+
+// 500px
+
+@media (max-width: 31em) {
+  .contact h2 {
+    margin-left: 0;
+  }
+
+  .contact-subtitle {
+    margin: 0 0 5rem 4rem;
+  }
+
+  .contact-form {
+    padding: 5rem;
+    gap: 2rem;
+  }
+}
+
+// 400px
+
+@media (max-width: 26em) {
+  .contact {
+    padding: 5rem 3rem;
+  }
+  .contact h2 {
+    margin-top: 0;
+  }
+
+  .contact-subtitle {
+    margin: 0 0 3rem 4rem;
+  }
+}
+
+// 335px
+
+@media (max-width: 21em) {
+  .contact {
+    font-size: 1.6rem;
+
+    h2 {
+      font-size: 2rem;
+
+      ion-icon {
+        font-size: 3rem;
+      }
+    }
+  }
+}

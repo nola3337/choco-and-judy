@@ -23,10 +23,10 @@ export default function Footer() {
       </div>
       <div className="footer-link">
         <NavHashLink to="/#about">關於我們</NavHashLink>
-        <NavHashLink to="/">聯絡我們</NavHashLink>
+        <NavHashLink to="/contact">聯絡我們</NavHashLink>
         <NavHashLink to="/#stores">門市據點</NavHashLink>
         <NavHashLink to="/shop">線上商店</NavHashLink>
-        <NavHashLink to="/shop/cms">進入後台</NavHashLink>
+        <NavHashLink to="/cms">進入後台</NavHashLink>
       </div>
       <div className="footer-copyright">
         <span>COPYRIGHT &#169; CHOCO &#38; JUDY ALL RIGHTS RESERVED</span>

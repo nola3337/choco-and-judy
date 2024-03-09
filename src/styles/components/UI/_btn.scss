@@ -1,0 +1,111 @@
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+%choco {
+  background-color: $color-choco;
+  color: white;
+
+  &:link,
+  &:visited {
+    background-color: $color-choco;
+    color: white;
+  }
+
+  &:hover,
+  &:active {
+    background-color: lighten($color-choco, 5%) !important;
+    color: white !important;
+  }
+
+  ion-icon {
+    &:hover,
+    &:active {
+      color: #fff;
+    }
+  }
+}
+
+.btn-home-card {
+  font-size: 1.8rem;
+  padding: 1rem 2rem;
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @extend %choco;
+}
+
+.btn-product-info {
+  font-size: 1.5rem;
+}
+
+.btn-addtocard {
+  @extend %choco;
+}
+
+.btn-cart {
+  font-size: 2rem;
+  padding: 0.5rem 5rem;
+  width: 20rem;
+
+  @extend %choco;
+}
+
+.btn-cart-quantity {
+  border-radius: 1000px;
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+
+  @extend %choco;
+}
+
+.btn-login {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  box-shadow: 2px 3px 5px rgba(85, 85, 85, 0.37);
+
+  @extend %choco;
+}
+
+.btn-cms-home {
+  font-size: 2rem;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  @extend %choco;
+}
+
+.btn-cms-form {
+  font-size: 1.8rem;
+  margin-left: auto;
+  padding: 0.5rem 2rem;
+  margin-top: 2rem;
+
+  @extend %choco;
+}
+
+.btn-scroll {
+  border-radius: 50%;
+  border: 0.2rem solid #ffffff;
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  width: 5rem;
+  height: 5rem;
+  z-index: 1000;
+  box-shadow: 2px 3px 5px rgba(85, 85, 85, 0.37);
+
+  @extend %choco;
+}
+
+.hidden {
+  display: none;
+}

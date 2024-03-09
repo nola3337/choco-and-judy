@@ -45,9 +45,9 @@ export default function Member() {
         <div className="member-form-btns">
           <div className="member-form-login">
             <span>已有帳號?</span>
-            <button className="btn">會員登入</button>
+            <button className="btn btn-login">會員登入</button>
           </div>
-          <button onClick={handleConfirm} className="btn">
+          <button onClick={handleConfirm} className="btn btn-login">
             註冊
           </button>
         </div>

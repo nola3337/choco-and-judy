@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* 尊重使用者對字體大小的變更權 */
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+ion-icon {
+  color: white;
+  font-size: 2.5rem;
+  margin: 0;
+
+  &:hover {
+    color: rgba(200, 198, 198, 0.6);
+  }
+}

@@ -1,0 +1,37 @@
+.search {
+  margin: 10rem;
+  display: flex;
+  gap: 2rem;
+
+  input {
+    border: 0.3rem solid $color-choco;
+    border-radius: 6px;
+    height: 5rem;
+    width: 30rem;
+    font-size: 3rem;
+    font-family: inherit;
+  }
+
+  button,
+  button:link,
+  button:visited {
+    background-color: $color-choco;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover,
+    &:active {
+      background-color: lighten($color-choco, 5%);
+      color: #fff;
+    }
+
+    ion-icon:hover,
+    ion-icon:active {
+      color: #fff;
+    }
+  }
+}

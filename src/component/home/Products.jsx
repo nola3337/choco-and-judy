@@ -1,52 +1,80 @@
-import img1 from "../../styles/img/products/ichigo-p.webp";
-import img2 from "../../styles/img/products/heart-p.webp";
-import img3 from "../../styles/img/products/starchoco-p.webp";
+import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
+import fetchData from "../../http";
 
 export default function Products() {
+  const control = useAnimation();
+
+  const [ref, inView] = useInView();
+
+  const boxVariant = {
+    visible: { y: 0, opacity: 1 },
+    hidden: { y: 100, opacity: 0 },
+  };
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    }
+  }, [control, inView]);
+
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchData,
+  });
+
+  let dataArray = [];
+  let firstThreeData = [];
+
+  if (data) {
+    dataArray = Object.entries(data).map(([key, value]) => ({
+      ...value,
+      key: key,
+    }));
+
+    firstThreeData = dataArray.slice(0, 3);
+  }
+
   return (
     <section className="products">
       <div className="products-title">
         <h2>人氣商品</h2>
-        <button className="products-title-btn btn">
-          <span>看更多</span>
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </button>
+        <Link to="/shop">
+          <button className="products-title-btn btn">
+            <span>看更多</span>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+        </Link>
       </div>
-      <div className="products-list">
-        <div className="products-list-card">
-          <div className="products-list-card-img-box">
-            <img src={img1} alt="甜蜜草莓可可蛋糕" />
-          </div>
-          <span>甜蜜草莓可可蛋糕</span>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio
-            minima ab nam, ea doloremque non laudantium!
-          </p>
-          <button className="products-list-card-btn btn">我要訂購</button>
-        </div>
-        <div className="products-list-card">
-          <div className="products-list-card-img-box">
-            <img src={img2} alt="心心相印濃密巧克力" />
-          </div>
-          <span>心心相印濃密巧克力</span>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio
-            minima ab nam, ea doloremque non laudantium!
-          </p>
-          <button className="products-list-card-btn btn">我要訂購</button>
-        </div>
-        <div className="products-list-card">
-          <div className="products-list-card-img-box">
-            <img src={img3} alt="星耀臻果巧克力" />
-          </div>
-          <span>星耀臻果巧克力</span>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio
-            minima ab nam, ea doloremque non laudantium!
-          </p>
-          <button className="products-list-card-btn btn">我要訂購</button>
-        </div>
-      </div>
+      <motion.div
+        ref={ref}
+        variants={boxVariant}
+        animate={control}
+        initial="hidden"
+        transition={{ duration: 1 }}
+        className="products-list"
+      >
+        {firstThreeData.map((item) => {
+          const imgPath = `${process.env.PUBLIC_URL}/products/${item.img}`;
+
+          return (
+            <div key={item.key} className="products-list-card">
+              <div className="products-list-card-img-box">
+                <img src={imgPath} alt={item.name} />
+              </div>
+              <span>{item.name}</span>
+              <p>{item.description}</p>
+              <Link to={`/shop/${item.id}`}>
+                <button className="btn btn-home-card">我要訂購</button>
+              </Link>
+            </div>
+          );
+        })}
+      </motion.div>
     </section>
   );
 }

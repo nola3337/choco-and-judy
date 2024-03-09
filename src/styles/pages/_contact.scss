@@ -1,0 +1,66 @@
+.contact {
+  font-size: 2rem;
+  font-weight: 600;
+  color: $color-choco;
+  margin-top: 6rem;
+  display: grid;
+  place-items: center;
+  padding: 10rem;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 3rem 0 3rem 6rem;
+    // border-left: 0.5rem solid $color-choco;
+    padding: 1rem;
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    ion-icon {
+      font-size: 4rem;
+      font-weight: 600;
+      color: $color-choco;
+    }
+  }
+
+  &-subtitle {
+    font-weight: 400;
+    margin: 0 0 9rem 8rem;
+    justify-self: start;
+  }
+
+  &-form {
+    width: 70rem;
+    padding: 8rem;
+    border: 0.5rem solid $color-choco;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    button,
+    button:link,
+    button:visited {
+      margin-top: 2rem;
+      margin-left: auto;
+      background-color: $color-choco;
+      font-size: 1.8rem;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+
+      &:hover,
+      &:active {
+        color: #fff;
+        background-color: lighten($color-choco, 5%);
+      }
+    }
+
+    &-input {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}

@@ -48,7 +48,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={handleOpenMenu} to="/">
+            <NavLink onClick={handleOpenMenu} to="/contact">
               <ion-icon name="chatbubbles-outline"></ion-icon>
               <span>聯絡我們</span>
             </NavLink>

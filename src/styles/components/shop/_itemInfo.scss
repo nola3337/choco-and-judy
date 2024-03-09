@@ -1,0 +1,43 @@
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  gap: 4rem;
+  padding: 4rem;
+  margin-bottom: 8rem;
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+  }
+
+  &-buy {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    // justify-content: center;
+    border-top: 4px solid $color-choco;
+    border-bottom: 4px solid $color-choco;
+    height: 18rem;
+
+    &-text {
+      font-size: 2rem;
+    }
+
+    &-price {
+      font-size: 2rem;
+      color: red;
+    }
+  }
+}

@@ -1,9 +1,29 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { OpenActions } from "../../store/OpenSlice";
+import { useQuery } from "@tanstack/react-query";
+import fetchData from "../../http";
 
 export default function ShopHeader() {
   const dispatch = useDispatch();
+
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchData,
+  });
+
+  let dataArray = [];
+
+  let quantity;
+
+  if (data) {
+    dataArray = Object.entries(data).map(([key, value]) => ({
+      ...value,
+      key: key,
+    }));
+
+    quantity = dataArray.filter((item) => item.isInCart === true).length;
+  }
 
   function handleToggleMember() {
     dispatch(OpenActions.toggleMember());
@@ -38,12 +58,9 @@ export default function ShopHeader() {
         <NavLink onClick={handleToggleMember}>
           <ion-icon name="person-circle-outline"></ion-icon>
         </NavLink>
-        <NavLink to="/">
-          <ion-icon name="search-outline"></ion-icon>
-        </NavLink>
         <NavLink to="/shop/cart">
           <ion-icon name="cart-outline"></ion-icon>
-          <span>1</span>
+          {quantity >= 1 && <span>{quantity}</span>}
         </NavLink>
       </div>
     </header>

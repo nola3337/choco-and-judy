@@ -14,8 +14,16 @@ import CakeProducts from "./component/shop/CakeProducts";
 import CookieProducts from "./component/shop/CookieProducts";
 import Item from "./component/shop/Item";
 import Cart from "./component/shop/Cart";
-import CMS from "./component/shop/CMS";
-import { action as CMSAction } from "./component/shop/CMS";
+import CMSForm from "./component/cms/CMSForm";
+import CMSHome from "./component/cms/CMSHome";
+import CMSAllProducts from "./component/cms/CMSAllProducts";
+import CMSPopularProducts from "./component/cms/CMSPopularProducts";
+import CMSCookieProducts from "./component/cms/CMSCookieProducts";
+import CMSChocolateProducts from "./component/cms/CMSChocolateProducts";
+import CMSCakeProducts from "./component/cms/CMSCakeProducts";
+import CMS from "./pages/CMS";
+import { action as CMSAction } from "./component/cms/CMSForm";
+import Contact from "./pages/Contact.jsx";
 
 let isInitial = true;
 
@@ -42,6 +50,10 @@ function App() {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
         },
         {
           path: "/shop",
@@ -75,9 +87,44 @@ function App() {
               path: "/shop/cart",
               element: <Cart />,
             },
+          ],
+        },
+        {
+          path: "/cms",
+          element: <CMS />,
+          children: [
             {
-              path: "/shop/cms",
-              element: <CMS />,
+              path: "/cms",
+              element: <CMSHome />,
+            },
+            {
+              path: "/cms/all",
+              element: <CMSAllProducts />,
+            },
+            {
+              path: "/cms/popular",
+              element: <CMSPopularProducts />,
+            },
+            {
+              path: "/cms/cookie",
+              element: <CMSCookieProducts />,
+            },
+            {
+              path: "/cms/chocolate",
+              element: <CMSChocolateProducts />,
+            },
+            {
+              path: "/cms/cake",
+              element: <CMSCakeProducts />,
+            },
+            {
+              path: "/cms/add-product",
+              element: <CMSForm method="post" />,
+              action: CMSAction,
+            },
+            {
+              path: "/cms/edit-product",
+              element: <CMSForm method="patch" />,
               action: CMSAction,
             },
           ],

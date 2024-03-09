@@ -1,0 +1,211 @@
+// 1055px
+
+@media (max-width: 66em) {
+  .shop-body.cms-body {
+    grid-template-columns: 1fr 4fr;
+    margin: 0;
+  }
+
+  .aside.cms-aside {
+    display: block;
+    width: 20rem;
+  }
+}
+
+// 975px
+
+@media (max-width: 61em) {
+  .cms {
+    padding: 5rem 7rem;
+  }
+}
+
+// 927px
+
+@media (max-width: 58em) {
+  .cms {
+    padding: 5rem 4rem;
+  }
+}
+
+// 862px
+
+@media (max-width: 54em) {
+  .aside.cms-aside {
+    width: 18rem;
+  }
+  .cms {
+    padding: 5rem 2rem 5rem 1rem;
+  }
+}
+
+// 800px
+
+@media (max-width: 50em) {
+  .aside.cms-aside {
+    padding-right: 2rem;
+  }
+  .cms {
+    padding: 5rem 2rem 5rem 0;
+  }
+}
+
+// 780px
+
+@media (max-width: 49em) {
+  .cms-form {
+    width: 58rem;
+    padding: 4rem;
+  }
+}
+
+// 750px
+
+@media (max-width: 47em) {
+  .aside.cms-aside {
+    width: 16rem;
+    padding-right: 1.5rem;
+  }
+
+  .cms-form {
+    width: 56rem;
+  }
+}
+
+// 703px
+
+@media (max-width: 44em) {
+  .shop-body.cms-body {
+    grid-template-columns: 1fr;
+    margin: 2rem 4rem 4rem 4rem;
+  }
+
+  .aside.cms-aside {
+    width: auto;
+    padding: 3rem;
+
+    &-list {
+      display: flex;
+    }
+  }
+
+  .cms {
+    padding: 0 0 5rem 0;
+  }
+
+  .cms-form {
+    width: 100%;
+  }
+
+  .cms-home {
+    margin: 0 0 30rem 0;
+  }
+}
+
+// 623px
+
+@media (max-width: 39em) {
+  .shop-body.cms-body {
+    margin: 2rem 4rem 4rem 4rem;
+  }
+
+  .aside.cms-aside {
+    padding-bottom: 1rem;
+  }
+
+  .cms-form {
+    width: 100%;
+  }
+
+  .cms-form-input textarea {
+    width: 30rem;
+  }
+}
+
+// 605px
+
+@media (max-width: 38em) {
+  .cms-form-input label {
+    font-size: 1.4rem;
+  }
+
+  .cms-form img {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .cms-form-input textarea {
+    width: 25rem;
+  }
+
+  .input-long {
+    width: 25rem;
+  }
+}
+
+// 500px
+
+@media (max-width: 31em) {
+  .cms-form {
+    width: 95vw;
+  }
+}
+
+// 440px
+
+@media (max-width: 28em) {
+  .cms-form-input textarea {
+    width: 20rem;
+    height: 18rem;
+  }
+
+  .input-long {
+    width: 20rem;
+  }
+}
+
+// 400px
+
+@media (max-width: 26em) {
+  .product-list-card-info-cms-btns {
+    gap: 1rem;
+  }
+
+  .cms-form img {
+    width: 10rem;
+    height: 10rem;
+    margin-left: 15rem;
+  }
+
+  .cms-form-input textarea {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .input-long {
+    width: 15rem;
+  }
+
+  .cms-home p {
+    font-size: 1.8rem;
+  }
+}
+
+// 335px
+
+@media (max-width: 21em) {
+  .cms-form img {
+    width: 8rem;
+    height: 8rem;
+    margin-left: 10rem;
+  }
+
+  .cms-form-input textarea {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .input-long {
+    width: 10rem;
+  }
+}
