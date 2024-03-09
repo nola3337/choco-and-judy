@@ -1,7 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useEffect } from "react";
-import { sendData } from "./store/fetchAction";
-import { useSelector, useDispatch } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import RootLayout from "./pages/RootLayout";
@@ -25,30 +22,16 @@ import CMS from "./pages/CMS";
 import { action as CMSAction } from "./component/cms/CMSForm";
 import Contact from "./pages/Contact.jsx";
 
-let isInitial = true;
-
 const queryClient = new QueryClient();
 
 function App() {
-  const dispatch = useDispatch();
-  const data = useSelector((state) => state.product.products);
-
-  // useEffect(() => {
-  //   if (isInitial) {
-  //     isInitial = false;
-  //     return;
-  //   }
-
-  //   dispatch(sendData(data));
-  // }, [data, dispatch]);
-
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RootLayout />,
       children: [
         {
-          path: "/",
+          path: "/choco-and-judy",
           element: <Home />,
         },
         {

@@ -24,19 +24,19 @@ export default function Header() {
         </button>
         <ul className="nav-list">
           <li>
-            <NavHashLink onClick={handleOpenMenu} to="/">
+            <NavHashLink onClick={handleOpenMenu} to="/choco-and-judy">
               <ion-icon name="home-outline"></ion-icon>
               <span>首頁</span>
             </NavHashLink>
           </li>
           <li>
-            <NavHashLink onClick={handleOpenMenu} to="/#about">
+            <NavHashLink onClick={handleOpenMenu} to="/choco-and-judy/#about">
               <ion-icon name="information-circle-outline"></ion-icon>
               <span>關於我們</span>
             </NavHashLink>
           </li>
           <li>
-            <NavHashLink onClick={handleOpenMenu} to="/#stores">
+            <NavHashLink onClick={handleOpenMenu} to="/choco-and-judy/#stores">
               <ion-icon name="storefront-outline"></ion-icon>
               <span>門市據點</span>
             </NavHashLink>
@@ -69,7 +69,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <NavLink to="/">
+        <NavLink to="/choco-and-judy">
           <img src={logoText} alt="text logo" />
           <img className="header-logo-img" src={logo} alt="logo" />
         </NavLink>

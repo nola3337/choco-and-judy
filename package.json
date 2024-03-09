@@ -1,7 +1,7 @@
 {
   "name": "choco-and-judy",
   "version": "0.1.0",
-  "homepage": "https://nola3337.github.io/choco-and-judy",
+  "homepage": "https://nola3337.github.io/choco-and-judy/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
