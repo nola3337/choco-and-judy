@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/choco-and-judy/static/css/main.29733ced.css",
+    "main.js": "/choco-and-judy/static/js/main.75376ede.js",
+    "static/media/ichigo.webp": "/choco-and-judy/static/media/ichigo.47c4ba3e3ab52060bc81.webp",
+    "static/media/hearts.webp": "/choco-and-judy/static/media/hearts.f9e0cafd2e1601cba7a8.webp",
+    "static/media/cococake.webp": "/choco-and-judy/static/media/cococake.c15813ee6cb49e0094a6.webp",
+    "static/media/store4.webp": "/choco-and-judy/static/media/store4.e6fd37d14afbfd874c07.webp",
+    "static/media/store2.webp": "/choco-and-judy/static/media/store2.5f41a4ec2384282e28c6.webp",
+    "static/media/store3.webp": "/choco-and-judy/static/media/store3.42ee6c10b4465e582bff.webp",
+    "static/media/store1.webp": "/choco-and-judy/static/media/store1.29b86ffbad57f54fec8d.webp",
+    "static/media/logotext3.png": "/choco-and-judy/static/media/logotext3.f18ad4727965defda312.png",
+    "static/media/menu2.jpg": "/choco-and-judy/static/media/menu2.98dae9b62b4dfcaeed61.jpg",
+    "static/media/logotext4.png": "/choco-and-judy/static/media/logotext4.78225a8b74a17b60a351.png",
+    "static/media/ribbon.webp": "/choco-and-judy/static/media/ribbon.93e0f2cfdc1a80daac55.webp",
+    "index.html": "/choco-and-judy/index.html",
+    "main.29733ced.css.map": "/choco-and-judy/static/css/main.29733ced.css.map",
+    "main.75376ede.js.map": "/choco-and-judy/static/js/main.75376ede.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29733ced.css",
+    "static/js/main.75376ede.js"
+  ]
+}
