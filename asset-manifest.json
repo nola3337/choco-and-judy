@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/choco-and-judy/static/css/main.41c82dad.css",
-    "main.js": "/choco-and-judy/static/js/main.968fdb42.js",
+    "main.css": "/choco-and-judy/static/css/main.ffc6c75b.css",
+    "main.js": "/choco-and-judy/static/js/main.b9995212.js",
     "static/media/ichigo.webp": "/choco-and-judy/static/media/ichigo.47c4ba3e3ab52060bc81.webp",
     "static/media/hearts.webp": "/choco-and-judy/static/media/hearts.f9e0cafd2e1601cba7a8.webp",
     "static/media/cococake.webp": "/choco-and-judy/static/media/cococake.c15813ee6cb49e0094a6.webp",
@@ -14,11 +14,11 @@
     "static/media/logotext4.png": "/choco-and-judy/static/media/logotext4.78225a8b74a17b60a351.png",
     "static/media/ribbon.webp": "/choco-and-judy/static/media/ribbon.93e0f2cfdc1a80daac55.webp",
     "index.html": "/choco-and-judy/index.html",
-    "main.41c82dad.css.map": "/choco-and-judy/static/css/main.41c82dad.css.map",
-    "main.968fdb42.js.map": "/choco-and-judy/static/js/main.968fdb42.js.map"
+    "main.ffc6c75b.css.map": "/choco-and-judy/static/css/main.ffc6c75b.css.map",
+    "main.b9995212.js.map": "/choco-and-judy/static/js/main.b9995212.js.map"
   },
   "entrypoints": [
-    "static/css/main.41c82dad.css",
-    "static/js/main.968fdb42.js"
+    "static/css/main.ffc6c75b.css",
+    "static/js/main.b9995212.js"
   ]
 }
