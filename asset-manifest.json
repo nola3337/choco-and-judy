@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/choco-and-judy/static/css/main.ffc6c75b.css",
-    "main.js": "/choco-and-judy/static/js/main.b9995212.js",
+    "main.js": "/choco-and-judy/static/js/main.7a5ab60e.js",
     "static/media/ichigo.webp": "/choco-and-judy/static/media/ichigo.47c4ba3e3ab52060bc81.webp",
     "static/media/hearts.webp": "/choco-and-judy/static/media/hearts.f9e0cafd2e1601cba7a8.webp",
     "static/media/cococake.webp": "/choco-and-judy/static/media/cococake.c15813ee6cb49e0094a6.webp",
@@ -15,10 +15,10 @@
     "static/media/ribbon.webp": "/choco-and-judy/static/media/ribbon.93e0f2cfdc1a80daac55.webp",
     "index.html": "/choco-and-judy/index.html",
     "main.ffc6c75b.css.map": "/choco-and-judy/static/css/main.ffc6c75b.css.map",
-    "main.b9995212.js.map": "/choco-and-judy/static/js/main.b9995212.js.map"
+    "main.7a5ab60e.js.map": "/choco-and-judy/static/js/main.7a5ab60e.js.map"
   },
   "entrypoints": [
     "static/css/main.ffc6c75b.css",
-    "static/js/main.b9995212.js"
+    "static/js/main.7a5ab60e.js"
   ]
 }
